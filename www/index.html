@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Aura Shield</title>
+    <link rel="stylesheet" href="splash.css">
+</head>
+<body>
+
+    <div id="splash-screen" class="ui-layer">
+        <div class="glitch-container">
+            <h1 class="glitch-text" data-text="HiGames">HiGames</h1>
+            <h2 class="sub-text">DEVELOPED BY HALİL İBRAHİM ÜZER</h2>
+        </div>
+    </div>
+
+    <canvas id="gameCanvas"></canvas>
+
+    <div id="main-menu" class="ui-layer hidden">
+        <div class="score-container">
+            <div id="high-score-tag" class="hidden">👑 YENİ REKOR!</div>
+            <div class="menu-score">EN YÜKSEK SKOR: <span id="menu-high-score-val">0</span>m</div>
+        </div>
+
+        <div id="tap-to-play" class="pulse-text">OYNAMAK İÇİN TIKLA</div>
+
+        <div class="bottom-navigation">
+            <button id="btn-profile" class="nav-button">BEN</button>
+            <button id="btn-shop" class="nav-button">DÜKKAN</button>
+        </div>
+    </div>
+
+    <div id="profile-panel" class="ui-layer hidden">
+        <div class="panel-header">
+            <h3>KOZMİK ÖZELLEŞTİRME</h3>
+            <button id="close-profile" class="close-button">X</button>
+        </div>
+        <div class="currency-display">Işıltı: <span class="stardust-amount">0</span> ✨</div>
+        <div class="panel-content">
+            <div class="skin-list" id="skin-container"></div>
+        </div>
+    </div>
+
+    <div id="shop-panel" class="ui-layer hidden">
+        <div class="panel-header">
+            <h3>KOZMİK DÜKKAN</h3>
+            <button id="close-shop" class="close-button">X</button>
+        </div>
+        <div class="currency-display">Işıltı: <span class="stardust-amount">0</span> ✨</div>
+        <div class="panel-content">
+            <div class="shop-section">
+                <h4>KALICI YETENEKLER</h4>
+                <div class="shop-item" id="upgrade-shield-armor">
+                    <div class="item-info">
+                        <span class="item-title">Kalkan Zırhı</span>
+                        <span class="item-desc">İlk çarpmayı absorbe eder, kalkanı korur.</span>
+                    </div>
+                    <button class="buy-button">Geliştir (<span class="item-cost">100</span>)</button>
+                </div>
+            </div>
+
+            <div class="shop-section">
+                <h4>AKTİF GÜÇLENDİRMELER</h4>
+                <div class="shop-item" id="powerup-freeze">
+                    <div class="item-info">
+                        <span class="item-title">Kozmik Donma (Her Yer Dondu)</span>
+                        <span class="item-desc">Düşmanları 5s dondurur. Seviye süreyi artırır.</span>
+                    </div>
+                    <button class="buy-button">Satın Al (<span class="item-cost">30</span>)</button>
+                </div>
+                <div class="shop-item" id="powerup-magnet">
+                    <div class="item-info">
+                        <span class="item-title">Işıltı Girdabı (Mıknatıs)</span>
+                        <span class="item-desc">Işıltıları kendine çeker. Seviye menzili artırır.</span>
+                    </div>
+                    <button class="buy-button">Satın Al (<span class="item-cost">30</span>)</button>
+                </div>
+                <div class="shop-item" id="powerup-supernova">
+                    <div class="item-info">
+                        <span class="item-title">Süper Nova (Bomba)</span>
+                        <span class="item-desc">Ekrandaki tüm engelleri tek seferde yok eder.</span>
+                    </div>
+                    <button class="buy-button">Satın Al (<span class="item-cost">50</span>)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-hud" class="ui-layer hidden">
+        <div class="hud-top">
+            <div id="hud-score">0m</div>
+            <div id="hud-stardust">✨ 0</div>
+            <div id="hud-lives">🛡️ x1</div>
+        </div>
+        
+        <div class="active-powerups-zone">
+            <button id="use-freeze" class="skill-button hidden">❄️ <span class="count">0</span></button>
+            <button id="use-magnet" class="skill-button hidden">🧲 <span class="count">0</span></button>
+            <button id="use-supernova" class="skill-button hidden">💥 <span class="count">0</span></button>
+        </div>
+    </div>
+
+    <script src="player.js"></script>
+    <script src="chunks.js"></script>
+    <script src="ui.js"></script>
+    <script src="intro.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

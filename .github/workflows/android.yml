@@ -1,0 +1,49 @@
+name: Aura Shield APK Build
+
+on:
+  push:
+    branches:
+      - main  # Kodları main dalına gönderdiğinde otomatik tetiklenir
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Kodları GitHub sunucusuna çek
+      - name: Checkout Project
+        uses: actions/checkout@v4
+
+      # 2. Sunucuya Node.js kur ve Capacitor bağımlılıklarını yükle
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: |
+          npm install
+          npx cap sync
+
+      # 3. Java (JDK 17) Ortamını Hazırla
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'gradle'
+
+      # 4. Android Gradle Dosyasına Çalıştırma İzni Ver
+      - name: Grant Execute Permission for Gradlew
+        run: chmod +x android/gradlew
+
+      # 5. Bulutta Saf Android APK Derlemesini Başlat
+      - name: Build Release APK
+        run: cd android && ./gradlew assembleRelease
+
+      # 6. Oluşan APK'yı İndirme Linki Haline Getir
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: AuraShield-Release-APK
+          path: android/app/build/outputs/apk/release/app-release-unsigned.apk

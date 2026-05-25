@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Aura Shield</string>
+    <string name="title_activity_main">Aura Shield</string>
+    <string name="package_name">com.halilibrahim.aurashield</string>
+    <string name="custom_url_scheme">com.halilibrahim.aurashield</string>
+</resources>

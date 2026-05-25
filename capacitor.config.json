@@ -1,0 +1,6 @@
+{
+  "appId": "com.higames.aurashield",
+  "appName": "AuraShield",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}
